@@ -28,6 +28,7 @@ class StringCalculatorShould {
 	void string_with_three_numbers_should_return_numbers_sum_as_int() throws Exception {
 		StringCalculator stringCalculator=new StringCalculator();
 		assertEquals(7,stringCalculator.add("1,2\n4"));
+		
 	}
 	
 	@Test
@@ -38,5 +39,17 @@ class StringCalculatorShould {
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	@Test
+	void string_with_single_different_delimiter() throws Exception {
+		StringCalculator stringCalculator=new StringCalculator();
+		assertEquals(11,stringCalculator.add("//;\n2;3;6,1000"));
+	}
+	
+	@Test
+	void string_with_single_different_group_of_delimiter() throws Exception {
+		StringCalculator stringCalculator=new StringCalculator();
+		assertEquals(26,stringCalculator.add("//;;\n2;;5,6;;13"));
 	}
 }
